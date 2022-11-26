@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #C7E0FD;
 }
 
 .App-logo {
@@ -35,4 +36,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.BakeryImage {
+  width: 20%
 }

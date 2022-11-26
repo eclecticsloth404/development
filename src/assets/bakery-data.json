@@ -1,0 +1,137 @@
+[
+  {
+    "name": "Not Your Dad's Jeans",
+    "description": "Our classic oversized dad jean.",
+    "price": 8.99,
+    "color": "black",
+    "length": "regular",
+    "image": "images/dadjean.webp",
+    "count": 0
+  },
+  {
+    "name": "Not Your Mom's Jeans",
+    "description": "Our take on the classic mom jean in a beautiful light wash.",
+    "price": 9.99,
+    "color": "blue",
+    "length": "tall",
+    "image": "images/anika.png",
+    "count": 0
+  },
+  {
+    "name": "Cargo Heaven (short)",
+    "description": "Oversized cargo jeans with contrast stitching. Yes, you DO need this many pockets.",
+    "price": 5.99,
+    "color": "black",
+    "length": "short",
+    "image": "images/cargo.webp",
+    "count": 0
+  },
+  {
+    "name": "Cargo Heaven (regular)",
+    "description": "Oversized cargo jeans with contrast stitching. Yes, you DO need this many pockets.",
+    "price": 7.99,
+    "color": "black",
+    "length": "regular",
+    "image": "images/cargo.webp",
+    "count": 0
+  },
+  {
+    "name": "Cargo Heaven (tall)",
+    "description": "Oversized cargo jeans with contrast stitching. Yes, you DO need this many pockets.",
+    "price": 7.99,
+    "color": "black",
+    "length": "tall",
+    "image": "images/cargo.webp",
+    "count": 0
+  },
+  {
+    "name": "One Star Overalls",
+    "description": "Relaxed fit bib overalls. Why change perfection?",
+    "price": 7.99,
+    "color": "blue",
+    "length": "regular",
+    "image": "images/anika.png",
+    "count": 0
+  },
+  {
+    "name": "Chocolate Chip Cookies",
+    "description": "Four classic chocolate chip cookies",
+    "price": 7.99,
+    "color": "black",
+    "length": "short",
+    "image": "images/anika.png",
+    "count": 0
+  },
+  {
+    "name": "Chocolate Chip Cookies",
+    "description": "Four classic chocolate chip cookies",
+    "price": 7.99,
+    "color": "black",
+    "length": "regular",
+    "image": "images/anika.png",
+    "count": 0
+  },
+  {
+    "name": "Chocolate Chip Cookies",
+    "description": "Four classic chocolate chip cookies",
+    "price": 7.99,
+    "color": "black",
+    "length": "regular",
+    "image": "images/anika.png",
+    "count": 0
+  },
+  {
+    "name": "Chocolate Chip Cookies",
+    "description": "Four classic chocolate chip cookies",
+    "price": 7.99,
+    "color": "black",
+    "length": "short",
+    "image": "images/anika.png",
+    "count": 0
+  },
+  {
+    "name": "Chocolate Chip Cookies",
+    "description": "Four classic chocolate chip cookies",
+    "price": 7.99,
+    "color": "black",
+    "length": "tall",
+    "image": "images/anika.png",
+    "count": 0
+  },
+  {
+    "name": "Chocolate Chip Cookies",
+    "description": "Four classic chocolate chip cookies",
+    "price": 7.99,
+    "color": "black",
+    "length": "short",
+    "image": "images/anika.png",
+    "count": 0
+  },
+  {
+    "name": "Chocolate Chip Cookies",
+    "description": "Four classic chocolate chip cookies",
+    "price": 7.99,
+    "color": "black",
+    "length": "regular",
+    "image": "images/anika.png",
+    "count": 0
+  },
+  {
+    "name": "Chocolate Chip Cookies",
+    "description": "Four classic chocolate chip cookies",
+    "price": 7.99,
+    "color": "black",
+    "length": "regular",
+    "image": "images/anika.png",
+    "count": 0
+  },
+  {
+    "name": "Chocolate Chip Cookies",
+    "description": "Four classic chocolate chip cookies",
+    "price": 7.99,
+    "color": "black",
+    "length": "short",
+    "image": "images/anika.png",
+    "count": 0
+  }
+]
