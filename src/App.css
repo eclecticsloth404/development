@@ -1,43 +1,70 @@
 .App {
-  text-align: center;
+  text-align: center !important;
   background-color: #C7E0FD;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .BakeryImage {
   width: 20%
+}
+
+.CardStyle {
+  width: 100% !important;
+  height: 100% !important; 
+}
+
+.my-container {
+  max-width: 90% !important;
+  margin: auto;
+}
+.Items {
+  max-width: 80% !important;
+}
+
+.disabled {
+  background-color: white !important;
+  border-color: white !important;
+  color: white !important;
+}
+.item1 {grid-area: title}
+.item2 { grid-area: sort; }
+.item3 {grid-area: length;}
+.item4 { grid-area: color; }
+.item5 { grid-area: reset; }
+
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'title title title'
+    'sort length color';
+  background-color: white;
+  padding: 0px;
+  margin: 30px 200px;
+  border-radius: 25px;
+  
+}
+
+.card-button-container {
+  display: grid;
+  grid-template-areas:
+    'title sort';
+  background-color: white;
+  gap: 10px;
+  margin: 0;
+}
+
+.card-button-container > div {
+  text-align: center;
+  padding: 0;
+  font-size: 30px;
+}
+
+.button-font {
+  font-size: 1rem !important;
+}
+
+.grid-container > div {
+  text-align: center;
+  padding: 10px 0;
+  font-size: 30px;
 }

@@ -2,9 +2,15 @@ import "./App.css";
 import { useState } from "react";
 import bakeryData from "./assets/bakery-data.json";
 import BakeryItem from "./components/BakeryItem.js";
-import Card from 'react-bootstrap/Card';
+import Filter from "./components/Filt.js"
+import Cart from "./components/Cart.js"
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+import Dropdown from 'react-bootstrap/Dropdown';
+// import 'bootstrap/dist/css/bootstrap.css';
+
+
 
 /* ####### DO NOT TOUCH -- this makes the image URLs work ####### */
 bakeryData.forEach((item) => {
@@ -19,6 +25,7 @@ function App() {
   const [cart, nextCart] = useState([]);
   const [total, nextTotal] = useState(0);
   const [filteredItems, setFilteredItems] = useState(bakeryData);
+  const [numFilters, nextFilters] = useState(0);
 
   function addToCart(item) {
     item.count += 1;
@@ -31,7 +38,7 @@ function App() {
 
   function removeFromCart(item) {
     item.count -= 1;
-    const newCart = cart.filter((x) => x != item)
+    const newCart = cart.filter((x) => x !== item)
     if(item.count === 0) {
       nextCart(newCart);
     } else {
@@ -56,42 +63,100 @@ function App() {
   }
 
   function filterColor(color) {
-    var filtered = bakeryData.filter(item => item.color === color);
+    var filtered = []
+    if(document.getElementById(color).checked) {
+      if(numFilters > 0) {
+        filtered = filteredItems.concat(bakeryData.filter(item => item.color === color));
+      } else {
+        filtered = filteredItems.filter(item => item.color === color);
+      }
+      nextFilters(numFilters + 1);
+    } else {
+      if(numFilters > 1) {
+        filtered = filteredItems.filter(item => item.color !== color);
+      } else {
+        filtered = bakeryData;
+      }
+      nextFilters(numFilters - 1);
+    }
     setFilteredItems(filtered);
   }
 
-  function resetFilter() {
-    setFilteredItems(bakeryData);
+  function filterLength(len) {
+    var filtered = []
+    if(document.getElementById(len).checked) {
+      if(numFilters > 0) {
+        filtered = filteredItems.concat(bakeryData.filter(item => item.sizerange === len));
+      } else {
+        filtered = filteredItems.filter(item => item.sizerange === len);
+      }
+      nextFilters(numFilters + 1);
+    } else {
+      if(numFilters > 1) {
+        filtered = filteredItems.filter(item => item.sizerange !== len);
+      } else {
+        filtered = bakeryData;
+      }
+      nextFilters(numFilters - 1);
+    }
+    setFilteredItems(filtered);
   }
 
-  function sortPrice() {
+  function sortPrice(isHigh) {
     const sorted = [...filteredItems]; // copy of current items
-    sorted.sort((a, b) => (a.price - b.price)); //sort copy
+    if(isHigh) {
+      sorted.sort((a, b) => (a.price - b.price));
+    } else {
+      sorted.sort((a, b) => (b.price - a.price));
+    }
     setFilteredItems(sorted);
   }
-
-  var componentArray = [];
 
 
   return (
     <div className="App">
-        <img src="./images/logo.png"/> {/* TODO: personalize your bakery (if you want) */}
-      
-      
-      {componentArray = filteredItems.map((item) => (
-        <BakeryItem item={item} handleClick={handleClick} removeFromCart={removeFromCart}/>
-      ))}
-      
-
-      <button onClick={() => {filterColor("blue")}}>Filter blue</button>
-      <button onClick={() => {filterColor("black")}}>Filter black</button>
-      <button onClick={() => {resetFilter()}}>reset</button>
-      <button onClick={() => {sortPrice()}}>sort</button>
-
+      <img src="./images/logo.png"/>
+      <div className="grid-container">
+        <div className="item1">
+          Sort or Filter Items:
+        </div>
+        <div className="item2">
+          <Dropdown>
+            <Dropdown.Toggle variant="success" size="lg" id="dropdown-basic">
+              Sort by
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item onClick={()=>sortPrice(true)}>Price Low to High</Dropdown.Item>
+              <Dropdown.Item onClick={()=>sortPrice(false)}>Price High to Low</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
+        <div className="item3">
+          <Filter cat={'Size Range'} arr={['Tall', 'Short', 'Main collection', 'Plus']} f={filterLength}/>
+        </div>  
+        <div className="item4">
+          <Filter cat={'Color'} arr={['Black', 'Blue', 'Green', 'Orange']} f={filterColor}/>
+        </div>
+      </div>
       <div>
-        <h2>Cart</h2>
-        {cart.map((item) => (<p>{item.name + ' x' + item.count}</p>))}
-        <p>Total: {total}</p>
+        <Container className="my-container">
+          <Row>
+            <Col xs={9}>
+              <div>
+                <Row xs={1} md={2} lg={3} className="g-4">
+                  {filteredItems.map((item) => (
+                  <Col>
+                    <BakeryItem item={item} handleClick={handleClick} removeFromCart={removeFromCart}/>
+                  </Col>
+                  ))}
+                </Row>
+              </div>
+            </Col>
+            <Col>
+              <Cart cart={cart} total={total} />
+            </Col>
+          </Row>
+        </Container> 
       </div>
     </div>
   );
