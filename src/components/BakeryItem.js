@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 
 // TODO: create a component that displays a single bakery item
 
-function BakeryItem(props) {
+function Product(props) {
     if (props.item.count > 0) {
         return (
         <Card className="CardStyle">
@@ -59,4 +59,4 @@ function BakeryItem(props) {
         );
 }
 
-export default BakeryItem;
+export default Product;
