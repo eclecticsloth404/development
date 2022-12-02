@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState } from "react";
-import bakeryData from "./assets/bakery-data.json";
-import BakeryItem from "./components/BakeryItem.js";
+import productsData from "./assets/products-data.json";
+import Product from "./components/Product.js";
 import Filter from "./components/Filt.js"
 import Cart from "./components/Cart.js"
 import Col from 'react-bootstrap/Col';
@@ -13,7 +13,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 
 /* ####### DO NOT TOUCH -- this makes the image URLs work ####### */
-bakeryData.forEach((item) => {
+productsData.forEach((item) => {
   item.image = process.env.PUBLIC_URL + "/" + item.image;
 });
 /* ############################################################## */
@@ -24,7 +24,7 @@ function App() {
 
   const [cart, nextCart] = useState([]);
   const [total, nextTotal] = useState(0);
-  const [filteredItems, setFilteredItems] = useState(bakeryData);
+  const [filteredItems, setFilteredItems] = useState(productsData);
   const [numFilters, nextFilters] = useState(0);
 
   function addToCart(item) {
@@ -66,7 +66,7 @@ function App() {
     var filtered = []
     if(document.getElementById(color).checked) {
       if(numFilters > 0) {
-        filtered = filteredItems.concat(bakeryData.filter(item => item.color === color));
+        filtered = filteredItems.concat(productsData.filter(item => item.color === color));
       } else {
         filtered = filteredItems.filter(item => item.color === color);
       }
@@ -75,7 +75,7 @@ function App() {
       if(numFilters > 1) {
         filtered = filteredItems.filter(item => item.color !== color);
       } else {
-        filtered = bakeryData;
+        filtered = productsData;
       }
       nextFilters(numFilters - 1);
     }
@@ -86,7 +86,7 @@ function App() {
     var filtered = []
     if(document.getElementById(len).checked) {
       if(numFilters > 0) {
-        filtered = filteredItems.concat(bakeryData.filter(item => item.sizerange === len));
+        filtered = filteredItems.concat(productsData.filter(item => item.sizerange === len));
       } else {
         filtered = filteredItems.filter(item => item.sizerange === len);
       }
@@ -95,7 +95,7 @@ function App() {
       if(numFilters > 1) {
         filtered = filteredItems.filter(item => item.sizerange !== len);
       } else {
-        filtered = bakeryData;
+        filtered = productsData;
       }
       nextFilters(numFilters - 1);
     }
@@ -146,7 +146,7 @@ function App() {
                 <Row xs={1} md={2} lg={3} className="g-4">
                   {filteredItems.map((item) => (
                   <Col>
-                    <BakeryItem item={item} handleClick={handleClick} removeFromCart={removeFromCart}/>
+                    <Product item={item} handleClick={handleClick} removeFromCart={removeFromCart}/>
                   </Col>
                   ))}
                 </Row>
