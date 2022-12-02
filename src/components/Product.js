@@ -58,5 +58,4 @@ function Product(props) {
         </Card>
         );
 }
-
 export default Product;
